@@ -12,12 +12,18 @@ public class Main {
 		Scanner sc = new Scanner(System.in);
 		Productos productos = null;
 		
+		if (args.length == 0) {
+			System.out.println("El nÃºmero de argumentos no es vÃ¡lido:");
+			System.out.println("java main.java <fichero_distribuidores>");
+			System.exit(-1);
+		} 
+		
     	//Leemos la lista de distribuidores del fichero.
-		Distribuidores.leerDistribuidores("./almacen/distribuidores.txt");
+		Distribuidores.leerDistribuidores(args[0]);
 
 		do {
 			
-			//Visualiza por terminal (stdout) las opciones del menú
+			//Visualiza por terminal (stdout) las opciones del menï¿½
 			System.out.println("Mostrar distribuidores---------------------------1");
 			System.out.println("Solicitar productos------------------------------2");
 			System.out.println("Mostrar productos--------------------------------3");
@@ -39,10 +45,13 @@ public class Main {
 					}
 					productos.mostrarProductos();
 					break;
+				case 4: //Salimos
+					break;
 				default:
-					System.out.println("No ha insertado la opción correcta");
+					System.out.println("No ha insertado la opciï¿½n correcta");
 			}
 		} while (seleccion != 4);
+		System.out.println("Gracias por usar nuestro programa. Que tenga un buen dÃ­a!");
 		sc.close();
 	}
 

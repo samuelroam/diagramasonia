@@ -24,31 +24,31 @@ public class Direccion {
 	}
 	
 	/**
-	 * Constructor que recibe en forma de String las propiedades separadas entre sí por el caracter ';'.
+	 * Constructor que recibe en forma de String las propiedades separadas entre sï¿½ por el caracter ';'.
 	 */
 
-	public Direccion(String formattedDireccion) {
+	public Direccion(String linedDireccion, String separator) {
 		
-		String[] strArray = formattedDireccion.split(";");
+		String[] strArray = linedDireccion.split(separator);
 		
 		switch (strArray[0]) {
-		case "CALLE":
-			this.setTipo(TipoCalle.CALLE);
+		case "calle":
+			this.setTipo(TipoCalle.calle);
 			break;
-		case "AVENIDA":
-			this.setTipo(TipoCalle.AVENIDA);
+		case "avenida":
+			this.setTipo(TipoCalle.avenida);
 			break;
-		case "CAMINO":
-			this.setTipo(TipoCalle.CAMINO);
+		case "camino":
+			this.setTipo(TipoCalle.camino);
 			break;
-		case "PLAZA":
-			this.setTipo(TipoCalle.PLAZA);
+		case "plaza":
+			this.setTipo(TipoCalle.plaza);
 			break;
-		case "BOULEVARD":
-			this.setTipo(TipoCalle.BOULEVARD);
+		case "boulevard":
+			this.setTipo(TipoCalle.boulevard);
 			break;
 		default:
-			System.out.println("No existe el tipo de calle especificado");
+			System.out.println("No existe el tipo de calle especificado. Se cierra el programa.");
 			System.exit(-1);
 		}
 		

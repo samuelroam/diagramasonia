@@ -41,9 +41,10 @@ public class Distribuidores {
 				System.out.println("No existen distribuidores en el fichero");
 			}
 			
-			while(linea != null) {
-				Distribuidor distribuidor = new Distribuidor(linea);
+			while ((linea != null) && (linea.compareTo("") != 0)) {
+				Distribuidor distribuidor = new Distribuidor(linea,",");
 				listaDistribuidores.add(distribuidor);
+				linea = br.readLine();
 			}
 			br.close();
 	 }
@@ -52,14 +53,21 @@ public class Distribuidores {
 		
 		int i = 0;
 		Distribuidor distribuidor = null;
-	
+	System.out.println("[Distribuidores:buscarDistribuidor] Nombre del distribuidor a buscar:" + nombre);
 		do {			
-		
-			if ((distribuidor != null) && (listaDistribuidores.get(i).getNombre().equalsIgnoreCase(nombre))) {
+		   String distri = listaDistribuidores.get(i).getNombre();
+			System.out.println("[Distribuidores:buscarDistribuidor] Nombre del distribuidor:" + distri);
+		   
+			if (listaDistribuidores.get(i).getNombre().equalsIgnoreCase(nombre)) {
 				distribuidor = (Distribuidor)listaDistribuidores.get(i);
 			}
 			i++;
 		} while ((distribuidor == null) && (i < listaDistribuidores.size()));
+		
+		if (distribuidor == null) {
+			System.out.println("Distribuidor: No se ha encontrado el distribuidor en nuestra base de datos. Se cierra el programa.");
+			System.exit(-1);
+		}
 
 		return distribuidor;
 	}

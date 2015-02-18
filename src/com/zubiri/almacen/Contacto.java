@@ -23,18 +23,18 @@ public class Contacto {
 	}
 
 	/**
-	 * Constructor que recibe en forma de String las propiedades separadas entre sí por el caracter '*'.
+	 * Constructor que recibe en forma de String las propiedades separadas entre sï¿½ por el caracter '*'.
 	 */
 
-	public Contacto(String formattedContacto) {
+	public Contacto(String linedContacto, String separator) {
 
-		String[] strArray = formattedContacto.split("*");
+		String[] strArray = linedContacto.split(separator);
 		
 		this.setNombre(strArray[0]);
 		this.setApellido(strArray[1]);
 		this.setDni(strArray[2]);
-		this.setDireccion(new Direccion(strArray[3]));
-		this.setTelefono(new Telefono(strArray[4]));
+		this.setDireccion(new Direccion(strArray[3],"-"));
+		this.setTelefono(new Telefono(strArray[4],"-"));
 	}
 	public String getNombre() {
 		
@@ -81,10 +81,8 @@ public class Contacto {
 	public String formattedContacto() {
 		
 		String formattedContacto = 
-		"NOMBRE Y APELLIDO:\n" +
-		this.nombre + " " + this.apellido + "\n" +
-	    "DNI:\n" +
-		this.dni + "\n" +
+		"NOMBRE Y APELLIDO:" +	this.nombre + " " + this.apellido + "\n" +
+	    "DNI:" + this.dni + "\n" +
 		this.direccion.formattedDireccion() + "\n" +
 		this.telefono.formattedTelefono();
 		

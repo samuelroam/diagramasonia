@@ -10,9 +10,9 @@ package com.zubiri.almacen;
 public class Telefono {
 	
 	private TipoTelefono tipo;
-    private int codInternacional;
+    private int codInternacional = -1;
     private int codNacional = -1;
-    private int digitos9;
+    private int digitos;
 
 	/**
 	 * 
@@ -22,11 +22,11 @@ public class Telefono {
 	}
 
 	/**
-	 * Constructor que recibe en forma de String las propiedades separadas entre sí por el caracter '*'.
+	 * Constructor que recibe en forma de String las propiedades separadas entre sï¿½ por el caracter '*'.
 	 */
-	public Telefono(String formattedTelefono) {
+	public Telefono(String linedTelefono, String separator) {
 		
-		String[] strArray = formattedTelefono.split("*");
+		String[] strArray = linedTelefono.split(separator);
 		switch (strArray[0]) {	
 			case "MOVIL":
 				this.tipo = TipoTelefono.MOVIL;
@@ -35,13 +35,17 @@ public class Telefono {
 				this.tipo = TipoTelefono.FIJO;
 				break;
 			default:
-				System.out.println("No existe el tipo de teléfono especificado");
+				System.out.println("No existe el tipo de telï¿½fono especificado");
 				System.exit(-1);
 				break;
 		}
-		this.codInternacional = Integer.parseInt(strArray[1]);
-		this.codNacional = Integer.parseInt(strArray[2]);
-		this.digitos9 = Integer.parseInt(strArray[3]);
+		if (strArray[1].compareTo("") != 0) {
+			this.codInternacional = Integer.parseInt(strArray[1]);
+		}
+		if (strArray[2].compareTo("") != 0) {
+			this.codNacional = Integer.parseInt(strArray[2]);
+		}
+		this.digitos = Integer.parseInt(strArray[3]);
 		
 	}
 
@@ -90,15 +94,15 @@ public class Telefono {
 	/**
 	 * 
 	 */
-	public int getDigitos9() {
-		return digitos9;
+	public int getDigitos() {
+		return digitos;
 	}
 
 	/**
 	 * 
 	 */
-	public void setDigitos9(int digitos9) {
-		this.digitos9 = digitos9;
+	public void setDigitos(int digitos9) {
+		this.digitos = digitos9;
 	}
 
 	public String formattedTelefono() {
@@ -109,12 +113,12 @@ public class Telefono {
 			strTelefono = 
 			"TELEFONO " + this.tipo + ":\n" +
 			"(+" + this.codInternacional + ")" + 
-			this.digitos9;
+			this.digitos;
 		} else {
 			strTelefono = 
 			"TELEFONO " + this.tipo + ":\n" +
 			"(" + this.codNacional + ")" + 
-			this.digitos9;
+			this.digitos;
 		}
 		
 		return strTelefono;

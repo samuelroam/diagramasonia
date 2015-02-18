@@ -28,12 +28,24 @@ public class Leche extends Producto  implements Enviable{
 	public Leche(Scanner sc) {
 
 		super(sc);
-		/*
-		System.out.println("Tipo de manzana (DELICIOUS-GOLDEN-RED):");
-		this.setTipo(sc.next());
-	    System.out.println("Color de la manzana:");
-	    this.setColor(sc.next());
-		*/
+		System.out.println("Contiene lactosa?(SI-NO):");
+		switch(sc.next()) {
+			case "SI":
+				this.setLactosa(true);
+				break;
+			case "NO":
+				this.setLactosa(false);
+				break;
+		}
+		System.out.println("Es entera?(SI-NO):");
+		switch(sc.next()) {
+		case "SI":
+			this.setEntera(true);
+			break;
+		case "NO":
+			this.setEntera(false);
+			break;
+		}
 	}
 
 	public boolean getLactosa() {
@@ -64,14 +76,14 @@ public class Leche extends Producto  implements Enviable{
 		System.out.println("LECHE:");
 		super.mostrarProducto();
 		if (this.entera) {
-			System.out.println("entera");
+			System.out.println("\tentera");
 		} else {
-			System.out.println("desnatada");
+			System.out.println("\tdesnatada");
 		}	
 		if (this.lactosa) {
-			System.out.println("con lactosa");
+			System.out.println("\tcon lactosa");
 		} else {
-			System.out.println("sin lactosa");			
+			System.out.println("\tsin lactosa");			
 		}	
 	}
 

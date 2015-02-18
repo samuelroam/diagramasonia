@@ -54,8 +54,8 @@ public class Manzana extends Producto  implements Enviable {
 		
 		System.out.println("MANZANA:");
 		super.mostrarProducto();
-		System.out.println("tipo: " + this.tipo);
-		System.out.println("color: " + this.color);
+		System.out.println("\ttipo: " + this.tipo);
+		System.out.println("\tcolor: " + this.color);
 }
 
 }

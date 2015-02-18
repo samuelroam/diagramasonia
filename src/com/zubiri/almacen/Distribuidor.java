@@ -25,16 +25,16 @@ public class Distribuidor {
 	}
 
 	/**
-	 * Constructor que recibe en forma de String las propiedades separadas entre sí por el caracter ','.
+	 * Constructor que recibe en forma de String las propiedades separadas entre sï¿½ por el caracter ','.
 	 */
-	public Distribuidor(String distribuidorStr) {
+	public Distribuidor(String linedDistribuidor, String separator) {
 		
 		
-		String[] strArray = distribuidorStr.split(",");
+		String[] strArray = linedDistribuidor.split(separator);
 		this.setNombre(strArray[0]);
 		this.setCif(strArray[1]);
-		this.setDireccion(new Direccion(strArray[2]));
-		this.setContacto(new Contacto(strArray[3]));
+		this.setDireccion(new Direccion(strArray[2],";"));
+		this.setContacto(new Contacto(strArray[3],";"));
 	}
 	
 	public String getNombre() {
@@ -72,10 +72,8 @@ public class Distribuidor {
 	public String formattedDistribuidor() {
 
 		String distribuidorStr = 
-		"NOMBRE DISTRIBUIDOR:\n" + 
-		this.nombre + "\n" + 
-		"CIF:\n" + 
-		this.cif  + "\n" + 
+		"NOMBRE DISTRIBUIDOR:" + this.nombre + "\n" + 
+		"CIF:" + this.cif  + "\n" + 
 		"\t" + this.direccion.formattedDireccion() + "\n" +
 		"\t" + this.contacto.formattedContacto() + "\n";
 		

@@ -66,9 +66,9 @@ public abstract class Producto {
 	}
 	
 	public void mostrarProducto() {
-		System.out.println("distribuidor: " + this.getDistribuidor().getNombre());
-		System.out.println("marca:" + this.getMarca());
-		System.out.println("prodecendia:" + this.getProcedencia());
-		System.out.println("precio: " + this.getPrecio());
+		System.out.println("\tmarca:" + this.getMarca());
+		System.out.println("\tprodecendia:" + this.getProcedencia());
+		System.out.println("\tprecio: " + this.getPrecio());
+		System.out.println("\tdistribuidor: " + this.getDistribuidor().getNombre());
 	}
 }
