@@ -19,7 +19,7 @@ public class Contacto {
 	 * 
 	 */
 	public Contacto() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	/**
@@ -36,6 +36,7 @@ public class Contacto {
 		this.setDireccion(new Direccion(strArray[3],"-"));
 		this.setTelefono(new Telefono(strArray[4],"-"));
 	}
+	
 	public String getNombre() {
 		
 		return this.nombre;

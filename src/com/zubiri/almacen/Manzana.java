@@ -36,12 +36,15 @@ public class Manzana extends Producto  implements Enviable {
 	public String getTipo() {
 		return tipo;
 	}
+	
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
+	
 	public String getColor() {
 		return color;
 	}
+	
 	public void setColor(String color) {
 		this.color = color;
 	}
@@ -49,6 +52,7 @@ public class Manzana extends Producto  implements Enviable {
 	public boolean esFragil() {
     	return false;
     }
+	
 	@Override
 	public void mostrarProducto() {
 		

@@ -9,7 +9,7 @@ import java.util.Scanner;
  * @author xoni
  *
  */
-//public abstract class Producto 
+
 public abstract class Producto {
 	
 	private Distribuidor distribuidor;
@@ -35,11 +35,8 @@ public abstract class Producto {
 		this.setProcedencia(sc.next());
 		System.out.println("Distribuidor del producto:");
 		this.setDistribuidor(Distribuidores.buscarDistribuidor(sc.next()));
-		//Distribuidor distribuidor = buscarDistribuidor(sc.next());
-		//this.setDistribuidor(distribuidor);
-		
-		
 	}
+	
 	public Distribuidor getDistribuidor() {
 		return distribuidor;
 	}

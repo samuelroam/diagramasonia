@@ -53,7 +53,6 @@ public class Lechuga extends Producto implements Enviable {
 	@Override
 	public void mostrarProducto() {
 		
-		
 		System.out.println("LECHUGA:");
 		super.mostrarProducto();
 		if (this.fresca) {

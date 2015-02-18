@@ -10,7 +10,7 @@ import java.io.FileInputStream;
 //import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
-//import java.io.UnsupportedEncodingException;
+
 /**
  * @author xoni
  *
@@ -23,7 +23,7 @@ public class Distribuidores {
 	 * 
 	 */
 	private Distribuidores() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public static void leerDistribuidores(String fichero) throws IOException {
@@ -53,11 +53,8 @@ public class Distribuidores {
 		
 		int i = 0;
 		Distribuidor distribuidor = null;
-	System.out.println("[Distribuidores:buscarDistribuidor] Nombre del distribuidor a buscar:" + nombre);
-		do {			
-		   String distri = listaDistribuidores.get(i).getNombre();
-			System.out.println("[Distribuidores:buscarDistribuidor] Nombre del distribuidor:" + distri);
-		   
+
+		do {		
 			if (listaDistribuidores.get(i).getNombre().equalsIgnoreCase(nombre)) {
 				distribuidor = (Distribuidor)listaDistribuidores.get(i);
 			}
