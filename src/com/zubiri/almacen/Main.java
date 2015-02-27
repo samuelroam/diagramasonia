@@ -1,14 +1,15 @@
 package com.zubiri.almacen;
 
+
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
 
-	public static void main(String[] args) throws IOException,UnsupportedEncodingException {
+	public static void main(String[] args) throws Exception {
 	
-		int seleccion;
+		int seleccion = -1;
 		Scanner sc = new Scanner(System.in);
 		Productos productos = null;
 		
@@ -20,37 +21,43 @@ public class Main {
 		
     	//Leemos la lista de distribuidores del fichero.
 		Distribuidores.leerDistribuidores(args[0]);
-
+		
 		do {
-			
-			//Visualiza por terminal (stdout) las opciones del men�
-			System.out.println("Mostrar distribuidores---------------------------1");
-			System.out.println("Solicitar productos------------------------------2");
-			System.out.println("Mostrar productos--------------------------------3");
-			System.out.println("SALIR DEL PROGRAMA-------------------------------4");
-			   
-			seleccion = sc.nextInt();
-			switch (seleccion) {
-				
-				case 1: //Mostrar distribuidores
-					Distribuidores.mostrarDistribuidores();
-					break;
+			try{
+				//Visualiza por terminal (stdout) las opciones del men�
+				System.out.println("Mostrar distribuidores---------------------------1");
+				System.out.println("Solicitar productos------------------------------2");
+				System.out.println("Mostrar productos--------------------------------3");
+				System.out.println("SALIR DEL PROGRAMA-------------------------------4");
+				   
+				seleccion = sc.nextInt();
+				switch (seleccion) {
 					
-				case 2: //Solicitar productos
-					productos = new Productos(sc);
-					break;
-				case 3: //Mostrar productos
-					if (productos == null) {
-						System.out.println("No es posible mostrar productos sin haber sido solicitados");
-					}
-					productos.mostrarProductos();
-					break;
-				case 4: //Salimos
-					break;
-				default:
-					System.out.println("No ha insertado la opci�n correcta");
+					case 1: //Mostrar distribuidores
+						Distribuidores.mostrarDistribuidores();
+						break;
+						
+					case 2: //Solicitar productos
+						productos = new Productos(sc);
+						break;
+					case 3: //Mostrar productos
+						if (productos == null) {
+							System.out.println("No es posible mostrar productos sin haber sido solicitados");
+						}
+						productos.mostrarProductos();
+						break;
+					case 4: //Salimos
+						break;
+					default:
+						System.out.println("No ha insertado la opci�n correcta");
+				}
+			}catch(InputMismatchException e){
+				System.out.println("Eso no es un número ");
+				sc.nextLine();
 			}
+			
 		} while (seleccion != 4);
+		
 		System.out.println("Gracias por usar nuestro programa. Que tenga un buen día!");
 		sc.close();
 	}
